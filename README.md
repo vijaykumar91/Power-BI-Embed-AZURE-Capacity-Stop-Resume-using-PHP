@@ -1,4 +1,6 @@
-Representational State Transfer (REST) APIs are service endpoints that support sets of HTTP operations (methods), which provide create, retrieve, update, or delete access to the service's resources. This article walks you through:
+Hello, Everyone, I am Vijay now I am going to tell you how to resume and stop the embed capacity using rest and custom code. First, I will tell you by using Azure REST API than in the last, I will explain by custom code, also I will share the code, with you.
+
+Representational State Transfer (REST) APIs are service endpoints that support sets of HTTP operations (methods), which provide create, retrieve, update, or delete access to the service’s resources. This article walks you through:
 
 How to call Azure REST APIs with Postman
 The basic components of a REST API request/response pair.
@@ -7,23 +9,23 @@ Overviews of creating and sending a REST request, and handling the response.
 The most effective method to call Azure REST APIs with Postman
 This article will tell you the best way to rapidly verify with the Azure REST APIs by means of the customer id/secret strategy. We support you keep perusing beneath to find out about what comprises a REST activity, however in the event that you have to rapidly call the APIs.
 
-The Azure REST APIs require a Bearer Token Authorization header. The docs work superbly clarifying each validation necessity, however, don't reveal to you how to rapidly begin. This post will ideally tackle that for you.
+The Azure REST APIs require a Bearer Token Authorization header. The docs work superbly clarifying each validation necessity, however, don’t reveal to you how to rapidly begin. This post will ideally tackle that for you.
 
 Make AAD[AZURE ACTIVE DIRECTORY] Token Request:
-This Make will POST to https://login.microsoftonline.com//{{tenantId}}/oauth2/token with our Service Principal settings and afterward, in the "Tests" will set a Postman Global Variable called bearerToken to the access_token in the reaction.
+This Make will POST to https://login.microsoftonline.com//{{tenantId}}/oauth2/token with our Service Principal settings and afterward, in the “Tests” will set a Postman Global Variable called bearerToken to the access_token in the reaction.
 
-
+postman_request_token
 
 Set Environment Variables:
-At the point when you tapped on the "Run in Postman" button Postman likewise made an Environment for you called "Sky blue REST". You will presently set your Service Principal settings in the Environment to be utilized in the solicitations.
+At the point when you tapped on the “Run in Postman” button Postman likewise made an Environment for you called “Sky blue REST”. You will presently set your Service Principal settings in the Environment to be utilized in the solicitations.
 
 Snap on the apparatus symbol in the upper right hand corner of Postman and select Manage Environments.
-
+postmant_settings
 
 Snap on the Azure REST Environment and you will see all the necessary settings.
+postman_settings_azure
 
-
-Enter every one of your settings from the Service Principal we made before. Here's the means by which they map:
+Enter every one of your settings from the Service Principal we made before. Here’s the means by which they map:
 
 tenant = XXXXXXX
 appId = XXXXXXX
@@ -31,7 +33,7 @@ password = XXXXXXXXX
 subscriptionId =XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 fill these details into the postman as mentioned in the image.
 
-Make Get  Request for AAD Token:
+Make Get  Request for AAD Token:
 To begin with, we will execute the Get AAD Token solicitation to get our Bearer Token and put it in a Postman worldwide variable.
 
 Open the Get AAD Token solicitation and snap the Send button.
@@ -52,16 +54,16 @@ We get the access_token, now we will use this acccess_token get other API respon
 Now I am going to make a request to check the subscription of AZURE.
 
 Request header:
-The solicitation URI is packaged in the solicitation message header, alongside any extra fields required by your administration's REST API particular and the HTTP detail. Your solicitation may require the accompanying regular header fields:
+The solicitation URI is packaged in the solicitation message header, alongside any extra fields required by your administration’s REST API particular and the HTTP detail. Your solicitation may require the accompanying regular header fields:
 
 Approval: Contains the OAuth2 conveyor token to verify the solicitation, as obtained prior from Azure AD.
 
-Content-Type: Typically set to "application/json" (name/esteem matches in JSON design), and determines the MIME kind of the solicitation body.
+Content-Type: Typically set to “application/json” (name/esteem matches in JSON design), and determines the MIME kind of the solicitation body.
 
 Host: The space name or IP address of the server where the REST administration endpoint is facilitated.
 
 Send the request:
-Now that you have the administration's solicitation URI and have made the related solicitation message header and body, you are prepared to send the solicitation to the REST administration endpoint.
+Now that you have the administration’s solicitation URI and have made the related solicitation message header and body, you are prepared to send the solicitation to the REST administration endpoint.
 
 For instance, you may send a HTTPS GET demand strategy for an Azure Resource Manager supplier by utilizing demand header handle that are like the accompanying (note that the solicitation body is unfilled):
 
@@ -71,16 +73,16 @@ Host: management.azure.com
 
 <no body>
 
-And you might send an HTTPS PUT request method for an Azure Resource Manager provider, by using request header and body fields similar to the following example:
+And you might send an HTTPS PUT request method for an Azure Resource Manager provider, by using request header and body fields similar to the following example:
 
-PUT /subscriptions/.../resourcegroups/ExampleResourceGroup?api-version=2016-02-01 HTTP/1.1
+PUT /subscriptions/…/resourcegroups/ExampleResourceGroup?api-version=2016-02-01 HTTP/1.1
 Authorization: Bearer <bearer-token>
 Content-Length: 29
 Content-Type: application/json
 Host: management.azure.com
 
 {
-"location": "West US"
+“location”: “West US”
 }
 
 HTTP/1.1 200 OK
@@ -103,24 +105,24 @@ And you should receive a response body that contains a list of Azure subscriptio
         }
     ]
 }
-
+ 
 
 Now get the capacity list API request:
 
-
+get_capacity_list-1
 
 after fil these details press hit button send it will give the response like this which is given below:
 
 Sample Request
 Https://management.azure.com/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/providers/Microsoft.PowerBIDedicated/capacities?api-version=2017-10-01
-
 Sample Response
 Status code:
 200
 {
   "value": [
     {
-      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/providers/Microsoft.PowerBIDedicated/capacities/azsdktest",
+      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/providers
+/Microsoft.PowerBIDedicated/capacities/azsdktest",
       "location": "West US",
       "name": "azsdktest",
       "properties": {
@@ -141,7 +143,8 @@ Status code:
       }
     },
     {
-      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/providers/Microsoft.PowerBIDedicated/capacities/azsdktest",
+      "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/providers/
+Microsoft.PowerBIDedicated/capacities/azsdktest",
       "location": "West US",
       "name": "azsdktest2",
       "properties": {
@@ -165,23 +168,25 @@ Status code:
 }
 All the above processes explaining this is the direct process only, Fill all the details in postman browser the get the details.
 
-Now I am going to tell you all the process by code, I mean how you will generate a token by PHP code, this is the PHP curl code put all details inside the code this will give you response.
+Now I am going to tell you all the process by code, I mean how you will generate a token by PHP code, this is the PHP curl code put all details inside the code this will give you a response.
 This is the code for generating Authorization token.
-
 
  /*
 *Generate Authentication Token
 */
 $curl = curl_init();
 curl_setopt_array($curl, array(
-CURLOPT_URL => "https://login.microsoftonline.com/{{put here your directory id from azure}}/oauth2/token",
+CURLOPT_URL => "https://login.microsoftonline.com/
+{{put here your directory id from azure}}/oauth2/token",
 CURLOPT_RETURNTRANSFER => true,
 CURLOPT_ENCODING => "",
 CURLOPT_MAXREDIRS => 10,
 CURLOPT_TIMEOUT => 30,
 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 CURLOPT_CUSTOMREQUEST => "POST",
-CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id={{put here client_id}}&client_secret={{put here client_secret}}&resource=https%3A%2F%2Fmanagement.azure.com",
+CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id=
+{{put here client_id}}&client_secret={{put here client_secret}}&resource=
+https%3A%2F%2Fmanagement.azure.com",
 CURLOPT_HTTPHEADER => array(
 "cache-control: no-cache",
 "content-type: application/x-www-form-urlencoded"
@@ -196,3 +201,96 @@ $Bearer_token=json_decode($response);
 $BeareToken=$Bearer_token->access_token;
 echo $BeareToken;
 this will generate the token
+After generating the token now will need to stop capacity, code is given below.
+
+$server = 'https://management.azure.com/subscriptions/{{Put-here-subscriptions-id}}
+/resourceGroups/edgedataportals/providers/Microsoft.PowerBIDedicated/
+capacities/edgedataportalsembedded/suspend?api-version=2017-10-01'; 
+// INSERT FULL URL OF curltest_data.php 
+$curlHandle = curl_init(); 
+$str = json_encode(array()); 
+$len = mb_strlen($str); 
+$headers = array('Content-type: application/json', 
+'Content-length: ' . $len,
+'authorization: Bearer '.{{Put Authorization token hare $BeareToken}},
+'cache-control: no-cache'
+); // WHEN OMITTING THIS CONTENT-LENGHT HEADER, IT WORKS FINE 
+curl_setopt($curlHandle,CURLOPT_HTTPGET,FALSE);
+curl_setopt($curlHandle,CURLOPT_POST,TRUE);
+curl_setopt($curlHandle,CURLOPT_POSTFIELDS,$str); 
+curl_setopt($curlHandle,CURLOPT_HEADER,TRUE); 
+curl_setopt($curlHandle,CURLOPT_NOBODY,FALSE); 
+curl_setopt($curlHandle,CURLOPT_TIMEOUT,5); 
+curl_setopt($curlHandle,CURLOPT_USERAGENT,'CURL'); 
+curl_setopt($curlHandle,CURLOPT_URL,$server); 
+curl_setopt($curlHandle,CURLOPT_VERBOSE,TRUE); 
+curl_setopt($curlHandle,CURLOPT_SSL_VERIFYPEER,0); 
+curl_setopt($curlHandle,CURLOPT_SSL_VERIFYHOST,0); 
+curl_setopt($curlHandle,CURLOPT_RETURNTRANSFER,TRUE); 
+curl_setopt($curlHandle,CURLOPT_HTTPHEADER,$headers); 
+$responseContentsStr= curl_exec($curlHandle); 
+$responseContentsArr= explode("\r\n\r\n", $responseContentsStr); 
+// echo 'DATA: ' . $str; 
+// echo '<br />DATA LEN: ' . $len; 
+// echo '<br />HEADERS: '; 
+// print_r($headers); 
+// echo '<br />ERROR: ' . curl_error($curlHandle); 
+// echo '<br />'; 
+$tmp = curl_getinfo($curlHandle); 
+//print_r($tmp); 
+curl_close($curlHandle); 
+//echo '<br />RESPONSE:<br />'; 
+$sucessArr=$responseContentsArr[0];
+$sucess=explode(" ",$sucessArr);
+$errorResponse= $responseContentsArr[1];
+$errorResp=json_decode($errorResponse);
+$errorMsg=$errorResp->error;
+
+Now will do resume the capacity, code is given below.
+
+$server = 'https://management.azure.com/subscriptions/{{Put-here-subscriptions-id}}
+/resourceGroups/edgedataportals/providers/Microsoft.PowerBIDedicated/capacities
+/edgedataportalsembedded/resume?api-version=2017-10-01'; 
+// INSERT FULL URL OF curltest_data.php 
+$curlHandle = curl_init(); 
+$str = json_encode(array()); 
+$len = mb_strlen($str); 
+$headers = array('Content-type: application/json', 
+'Content-length: ' . $len,
+'authorization: Bearer '.$token,
+'cache-control: no-cache'
+); // WHEN OMITTING THIS CONTENT-LENGHT HEADER, IT WORKS FINE 
+curl_setopt($curlHandle,CURLOPT_HTTPGET,FALSE);
+curl_setopt($curlHandle,CURLOPT_POST,TRUE);
+curl_setopt($curlHandle,CURLOPT_POSTFIELDS,$str); 
+curl_setopt($curlHandle,CURLOPT_HEADER,TRUE); 
+curl_setopt($curlHandle,CURLOPT_NOBODY,FALSE); 
+curl_setopt($curlHandle,CURLOPT_TIMEOUT,5); 
+curl_setopt($curlHandle,CURLOPT_USERAGENT,'CURL'); 
+curl_setopt($curlHandle,CURLOPT_URL,$server); 
+curl_setopt($curlHandle,CURLOPT_VERBOSE,TRUE); 
+curl_setopt($curlHandle,CURLOPT_SSL_VERIFYPEER,0); 
+curl_setopt($curlHandle,CURLOPT_SSL_VERIFYHOST,0); 
+curl_setopt($curlHandle,CURLOPT_RETURNTRANSFER,TRUE); 
+curl_setopt($curlHandle,CURLOPT_HTTPHEADER,$headers); 
+$responseContentsStr= curl_exec($curlHandle); 
+$responseContentsArr= explode("\r\n\r\n", $responseContentsStr); 
+// echo 'DATA: ' . $str; 
+// echo '<br />DATA LEN: ' . $len; 
+// echo '<br />HEADERS: '; 
+// print_r($headers); 
+// echo '<br />ERROR: ' . curl_error($curlHandle); 
+// echo '<br />'; 
+$tmp = curl_getinfo($curlHandle); 
+//print_r($tmp); 
+curl_close($curlHandle); 
+//echo '<br />RESPONSE:<br />'; 
+$sucessArr=$responseContentsArr[0];
+$sucess=explode(" ",$sucessArr);
+$errorResponse= $responseContentsArr[1];
+$errorResp=json_decode($errorResponse);
+$errorMsg=$errorResp->error;
+This is the final code, I hope you will enjoy it.
+
+Conclusion:
+I hope this article will help you a lot if you need any suggestions or help write in the comment box
